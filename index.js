@@ -3,13 +3,17 @@ var routes = require("./routes/index.js").routes;
 
 var PORT = system.env.port || 12345;
 
+var page = new WebPage();
+page.viewportSize = { "width": 1024, "height": 768 };
+
 var dispatch = function dispatch(routes, request) {
 	var match;
-	routes.some(function __someRoute(route) {
-		if (route.path === request.url) {
-			match = route[request.method];
-			return true;
+	routes.some(function _someRoute(route) {
+		if (route.p != request.url) {
+			return false;
 		}
+		match = route.m[request.method];
+		return true;
 	});
 	return match;
 };
@@ -17,7 +21,7 @@ var dispatch = function dispatch(routes, request) {
 var handleRequest = function handleRequest(request, response) {
 	var route = dispatch(routes, request);
 	if (route) {
-		route({}, function __$(data) {
+		route.call(page, {}, function _route(data) {
 			response.statusCode = 200;
 			response.setHeader(
 				"Content-Type",
