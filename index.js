@@ -6,6 +6,24 @@ var PORT = system.env.port || 12345;
 var page = new WebPage();
 page.viewportSize = { "width": 1024, "height": 768 };
 
+var parseQueryString = function parseQueryString(url) {
+	var idx = url.indexOf("?");
+	if (!~idx) {
+		return undefined;
+	}
+	var fragmentIdx = url.indexOf("#");
+	var queryString = url.substring(idx + 1, ~fragmentIdx ? fragmentIdx : undefined);
+	return decodeURIComponent(queryString)
+	.split("&")
+	.map(function (e, i, a) {
+		var parts = e.split("=");
+		return {
+			"k": parts[0],
+			"v": parts[1]
+		};
+	});
+};
+
 var dispatch = function dispatch(routes, request) {
 	var match;
 	routes.some(function _someRoute(route) {
@@ -19,6 +37,7 @@ var dispatch = function dispatch(routes, request) {
 };
 
 var handleRequest = function handleRequest(request, response) {
+	request.query = parseQueryString(request.url);
 	var route = dispatch(routes, request);
 	if (route) {
 		route.call(page, {}, function _route(data) {
