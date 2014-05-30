@@ -37,10 +37,10 @@ var dispatch = function dispatch(routes, request) {
 };
 
 var handleRequest = function handleRequest(request, response) {
-	request.query = parseQueryString(request.url);
 	var route = dispatch(routes, request);
+	var data  = request.method == "GET" ? parseQueryString(request.url) : request.post;
 	if (route) {
-		route.call(page, {}, function _route(data) {
+		route.call(page, data, function _route(data) {
 			response.statusCode = 200;
 			response.setHeader(
 				"Content-Type",
