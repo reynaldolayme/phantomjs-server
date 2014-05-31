@@ -3,10 +3,10 @@ PhantomJS Server
 
 Fair warning: this is still very much a work in progress&mdash;**it&rsquo;s rough and unfriendly.**
 
-Introduction
-------------
+Intro
+-----
 
-Simply put, PhantomJS Server is a (relatively modular?) web server using PhantomJS' `webserver` module. It is suited for running scripts in PhantomJS that need to be controlled from the outside world.
+Simply put, PhantomJS Server is a (relatively modular) web server using PhantomJS&rsquo; `webserver` module. It is suited for running PhantomJS scripts that need to be controlled from the outside world.
 
 wat
 ---
@@ -22,11 +22,11 @@ Speaking of IPC, you might be interesting in:
 Why should I use this instead of *x*
 ------------------------------------
 
-I&rsquo;m not sure. You probably shouldn&rsquo;t.
+1. I&rsquo;m not sure. You probably shouldn&rsquo;t.
 
 Quirks with PhantomJS
 ---------------------
 
-Not actually on-topic, but I had to put this somewhere:
+Completely off-topic, but I had to put this somewhere:
 
 - You cannot reassign `exports` (e.g. you cannot assign it a function).
