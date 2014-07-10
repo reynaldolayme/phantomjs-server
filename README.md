@@ -30,3 +30,8 @@ Quirks with PhantomJS
 Completely off-topic, but I had to put this somewhere:
 
 - You cannot reassign `exports` (e.g. you cannot assign it a function).
+
+How does this work
+------------------
+
+It&rsquo;s a HTTP server, so there&rsquo;s that. Each route is passed a set of key/value parameters, either query string or POST data, and a function to call when the route has completed it&rsquo;s work. The callback takes as a parameter any JSON-serializable object, which is sent as the response to the client.
