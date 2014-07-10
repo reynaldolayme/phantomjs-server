@@ -1,4 +1,4 @@
 exports.routes = [{
-	"p": "/foo",
-	"m": require("./foo")
+	"p": "/example",
+	"m": require("./example")
 }];
