@@ -1,12 +1,7 @@
 PhantomJS Server
 ================
 
-Fair warning: this is still very much a work in progress&mdash;**it&rsquo;s rough and unfriendly.**
-
-Intro
------
-
-Simply put, PhantomJS Server is a (relatively modular) web server using PhantomJS&rsquo; `webserver` module. It is suited for running PhantomJS scripts that need to be controlled from the outside world.
+This is a simple web server using PhantomJS&rsquo; `webserver` module. It is suited for running PhantomJS scripts that need to communicate with or be controlled by the outside world.
 
 wat
 ---
@@ -34,4 +29,4 @@ Completely off-topic, but I had to put this somewhere:
 How does this work
 ------------------
 
-It&rsquo;s a HTTP server, so there&rsquo;s that. Each route is passed a set of key/value parameters, either query string or POST data, and a function to call when the route has completed it&rsquo;s work. The callback takes as a parameter any JSON-serializable object, which is sent as the response to the client.
+It&rsquo;s a HTTP server, so there&rsquo;s that. When a request is recieved, the matching route is passed an array of key/value pairs (either the query parameters or the POST data), and a function to call when the route has completed it&rsquo;s work. The callback takes as a parameter any JSON-serializable object, which is sent as the response to the client.
