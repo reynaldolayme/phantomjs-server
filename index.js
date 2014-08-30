@@ -28,7 +28,7 @@ var parseQueryString = function parseQueryString(url) {
 var dispatch = function dispatch(routes, request) {
 	var match;
 	routes.some(function _someRoute(route) {
-		if (route.p != request.url) {
+		if (request.url.lastIndexOf(route.p) != 0) {
 			return false;
 		}
 		match = route.m[request.method];
