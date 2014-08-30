@@ -1,0 +1,21 @@
+{
+	"bitwise": false,
+	"camelcase": true,
+	"curly": true,
+	"forin": true,
+	"freeze": true,
+	"latedef": true,
+	"laxbreak": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"plusplus": true,
+	"quotmark": "double",
+	"smarttabs": true,
+	"trailing": true,
+	"undef": true,
+	"unused": "vars",
+
+	"phantom": true
+}
