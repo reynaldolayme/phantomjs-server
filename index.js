@@ -13,15 +13,16 @@ var parseQueryString = function parseQueryString(url) {
 	}
 	var fragmentIdx = url.indexOf("#");
 	var queryString = url.substring(idx + 1, ~fragmentIdx ? fragmentIdx : undefined);
-	return decodeURIComponent(queryString)
+	var data = {};
+
+	 decodeURIComponent(queryString)
 	.split("&")
-	.map(function (e, i, a) {
+	.forEach(function (e, i, a) {
 		var parts = e.split("=");
-		return {
-			"k": parts[0],
-			"v": parts[1]
-		};
+		data[parts[0]] = parts[1];
 	});
+
+	return data;
 };
 
 var dispatch = function dispatch(routes, request) {
