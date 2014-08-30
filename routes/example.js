@@ -1,7 +1,8 @@
 exports.GET = function GET(params, callback) {
 	var page = this;
 	var tweets = [];
-	page.open("http://mobile.twitter.com/PhantomJS", function (status) {
+	var account = params.account || "PhantomJS";
+	page.open(encodeURI("https://mobile.twitter.com/" + account), function (status) {
 		if (status !== "success") {
 			callback({
 				"statusCode": 500,
