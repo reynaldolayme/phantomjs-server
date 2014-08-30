@@ -9,9 +9,9 @@ If you are looking for a way to communicate with PhantomJS from [Node.js][3] you
 
 If you&rsquo;re looking for PhantomJS + Node.js complete package, you are probably looking for one of:
 
-- [sgentle/phantomjs-node](https://github.com/sgentle/phantomjs-node)
-- [alexscheelmeyer/node-phantom](https://github.com/alexscheelmeyer/node-phantom)
-- [baudehlo/node-phantom-simple](https://github.com/baudehlo/node-phantom-simple)
+- [node-phantom-simple](https://github.com/baudehlo/node-phantom-simple)
+- [node-phantom](https://github.com/alexscheelmeyer/node-phantom)
+- [phantomjs-node](https://github.com/sgentle/phantomjs-node)
 
 ---
 
