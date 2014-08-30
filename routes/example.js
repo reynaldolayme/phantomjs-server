@@ -1,7 +1,22 @@
 exports.GET = function GET(params, callback) {
-	callback("This is an example response to a GET request");
-};
-
-exports.POST = function POST(params, callback) {
-	callback("This is an example response to a POST request");
+	var page = this;
+	var tweets = [];
+	page.open("http://mobile.twitter.com/PhantomJS", function (status) {
+		if (status !== "success") {
+			callback({
+				"statusCode": 500,
+				"message": status
+			});
+		} else {
+			var tweets = page.evaluate(function() {
+				return Array.prototype.map.call(
+					document.querySelectorAll('div.tweet-text'),
+					function (tweet)  {
+						return tweet.innerText;
+					}
+				);
+			});
+			callback(undefined, tweets);
+		}
+	});
 };

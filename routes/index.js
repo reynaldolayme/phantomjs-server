@@ -1,4 +1,4 @@
 exports.routes = [{
-	"p": "/example",
+	"p": "/tweets",
 	"m": require("./example")
 }];
