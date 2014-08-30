@@ -4,7 +4,10 @@ var routes = require("./routes/index.js").routes;
 var PORT = system.env.port || 12345;
 
 var page = new WebPage();
-page.viewportSize = { "width": 1024, "height": 768 };
+page.viewportSize = {
+	"width": 1024,
+	"height": 768
+};
 
 var parseQueryString = function parseQueryString(url) {
 	var idx = url.indexOf("?");
