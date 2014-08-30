@@ -15,12 +15,11 @@ If you&rsquo;re looking for PhantomJS + Node.js complete package, you are probab
 
 ---
 
-**Why should I use this instead of `${x}`**
+### Why should I use this instead of `${x}`
 
 I&rsquo;m not sure. You probably shouldn&rsquo;t.
 
-How does this work
-------------------
+### How does this work?
 
 It&rsquo;s a HTTP server, so there&rsquo;s that. When a request is recieved, the matching route is passed an array of key/value pairs (either the query parameters or the POST data), and a callback function for when the route has completed it&rsquo;s work. The callback takes any JSON-serializable object as a parameter, which is sent as the response to the client.
 
