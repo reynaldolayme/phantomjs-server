@@ -40,11 +40,23 @@ var handleRequest = function handleRequest(request, response) {
 	var route = dispatch(routes, request);
 	var data  = request.method == "GET" ? parseQueryString(request.url) : request.post;
 	if (route) {
-		route.call(page, data, function _route(data) {
+		route.call(page, data, function _route(err, data) {
+			if (err) {
+				response.statusCode = err.statusCode;
+				response.setHeader(
+					"Content-Type",
+					"application/json; charset=utf-8"
+				);
+				response.write(JSON.stringify(err));
+				response.write("\n");
+				response.closeGracefully();
+				return;
+			}
+
 			response.statusCode = 200;
 			response.setHeader(
 				"Content-Type",
-				"application/json; charset=UTF-8"
+				"application/json; charset=utf-8"
 			);
 			response.write(JSON.stringify(data));
 			response.write("\n");
