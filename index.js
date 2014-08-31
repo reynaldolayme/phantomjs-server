@@ -1,13 +1,27 @@
+var Casper = require("casper");
 var system = require("system");
 var routes = require("./routes/index.js").routes;
 
 var PORT = system.env.port || 12345;
 
-var page = new WebPage();
-page.viewportSize = {
-	"width": 1024,
-	"height": 768
-};
+var casper = Casper.create({
+	"exitOnError": true,
+	"logLevel": "error",
+	"pageSettings": {
+		"loadImages": false,
+		"loadPlugins": false
+	},
+	"onRunComplete": undefined,
+	"safeLogs": true,
+	"silentErrors": false,
+	"stepTimeout": undefined,
+	"timeout": undefined,
+	"verbose": true,
+	"viewportSize": {
+		"width": 1024,
+		"height": 768
+	}
+});
 
 var parseQueryString = function parseQueryString(url) {
 	var idx = url.indexOf("?");
@@ -44,7 +58,7 @@ var handleRequest = function handleRequest(request, response) {
 	var route = dispatch(routes, request);
 	var data  = request.method == "GET" ? parseQueryString(request.url) : request.post;
 	if (route) {
-		route.call(page, data, function _route(err, data) {
+		route.call(casper, data, function _route(err, data) {
 			if (err) {
 				response.statusCode = err.statusCode;
 				response.setHeader(
