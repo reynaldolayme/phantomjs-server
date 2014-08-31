@@ -13,6 +13,20 @@ If you&rsquo;re looking for the PhantomJS + Node.js complete package, you&rsquo;
 - [node-phantom](https://github.com/alexscheelmeyer/node-phantom)
 - [phantomjs-node](https://github.com/sgentle/phantomjs-node)
 
+### Quick start
+
+Assuming that you have CasperJS in your `$PATH`:
+
+```bash
+$ casperjs index.js
+```
+
+The example route included retrives tweets the PhantomJS twitter account:
+
+```bash
+$ curl -i localhost:12345/tweets
+```
+
 ---
 
 ### Why should I use this instead of `${x}`?
