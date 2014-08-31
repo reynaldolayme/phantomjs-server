@@ -15,7 +15,7 @@ If you&rsquo;re looking for the PhantomJS + Node.js complete package, you&rsquo;
 
 ---
 
-### Why should I use this instead of `${x}`
+### Why should I use this instead of `${x}`?
 
 I&rsquo;m not sure. You probably shouldn&rsquo;t.
 
